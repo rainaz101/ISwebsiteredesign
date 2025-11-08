@@ -267,6 +267,114 @@
       font-size: 0.95em;
     }
 
+    .dropdown-section {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      overflow: hidden;
+    }
+
+    .dropdown-header {
+      background: #ffd700;
+      padding: 15px 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    .dropdown-header:hover {
+      background: #f0c900;
+    }
+
+    .dropdown-header h3 {
+      margin: 0;
+      font-size: 1.1em;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .dropdown-arrow {
+      font-size: 1.2em;
+      transition: transform 0.3s;
+    }
+
+    .dropdown-arrow.open {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .dropdown-content.open {
+      max-height: 1000px;
+    }
+
+    .dropdown-content ul {
+      list-style: none;
+      padding: 20px 25px;
+    }
+
+    .dropdown-content li {
+      padding: 8px 0;
+      color: #555;
+      font-size: 0.95em;
+      line-height: 1.5;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .dropdown-content li:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content .sub-option {
+      padding-left: 20px;
+      color: #777;
+      font-size: 0.9em;
+    }
+
+    .notes-section {
+      background: #fff9e6;
+      border: 2px solid #ffd700;
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 30px;
+    }
+
+    .notes-section h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+      border-bottom: 2px solid #ffd700;
+      padding-bottom: 10px;
+    }
+
+    .notes-section p, .notes-section ul {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .notes-section ul {
+      list-style: disc;
+      padding-left: 30px;
+    }
+
+    .notes-section li {
+      margin-bottom: 8px;
+    }
+
+    .notes-section strong {
+      color: #333;
+    }
+
     @media (max-width: 768px) {
       .hero-section, .course-section, .feature-grid, .contact-form {
         grid-template-columns: 1fr;
@@ -335,63 +443,115 @@
     <div class="content">
       <div class="program-header">
         <h2>Bachelor of Science in Information Systems</h2>
-        <p>Comprehensive curriculum designed for IS professionals</p>
+        <p>Preparing students for careers in Systems Analysis & Design, Computer Networking, and Health Care Informatics</p>
       </div>
 
       <div class="info-box">
-        <h4>Program Requirements</h4>
-        <p>For successful completion of the degree, all students must satisfy the general education requirements. All Information Systems majors must complete at least 9 upper level IS and Management courses taught by the IS department at UMBC. Students must earn a grade of "C" or better for any course to be applied to the Information Systems major.</p>
+        <h4>Program Overview</h4>
+        <p>For successful completion of the degree, all students must satisfy the general education requirements explained in the UMBC Undergraduate Catalog. All Information Systems majors must complete at least 9 upper level IS and Management courses taught by the IS department at UMBC.</p>
       </div>
+
+      <h3 style="margin: 30px 0 20px 0; color: #333; font-size: 1.4em;">Required Courses</h3>
       
-      <div class="course-section">
-        <div class="course-category">
-          <h3>Required Courses</h3>
+      <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('is-courses')">
+          <h3>Information Systems</h3>
+          <span class="dropdown-arrow" id="arrow-is-courses">▼</span>
+        </div>
+        <div class="dropdown-content" id="is-courses">
           <ul>
             <li>IS 300 – Management Information Systems</li>
             <li>IS 310 – Software and Hardware Concepts</li>
-            <li>IS 410 – Database Design</li>
-          </ul>
-        </div>
-        
-        <div class="course-category">
-          <h3>Core IS Courses</h3>
-          <ul>
+            <li>IS 410 – Introduction to Database Design</li>
             <li>IS 420 – Database Application Development</li>
             <li>IS 425 – Decision Support Systems</li>
-            <li>IS 436 – Systems Analysis & Design</li>
-          </ul>
-        </div>
-        
-        <div class="course-category">
-          <h3>Mathematics & CS</h3>
-          <ul>
-            <li>MATH 155 – Applied Calculus</li>
-            <li>MATH 215 – Finite Mathematics</li>
-            <li>STAT 351 – Applied Statistics</li>
-            <li>IS 147/CMSC 201 – Computer Programming</li>
-          </ul>
-        </div>
-        
-        <div class="course-category">
-          <h3>Network Courses</h3>
-          <ul>
+            <li>IS 436 – Structured Systems Analysis & Design</li>
             <li>IS 450 – Data Communications and Networks</li>
             <li>IS 451 – Network Design and Management</li>
-            <li>Upper Level IS Elective</li>
+            <li>IS 3xx or 4xx – Upper Level IS Elective
+              <div class="sub-option">(Students may not use IS 397, IS 399, IS 400, IS 467, IS 469, IS 478, IS 479, or any course being used to satisfy an IS certificate requirement.)</div>
+            </li>
           </ul>
         </div>
       </div>
 
-      <div class="course-section">
-        <div class="large-box">
-          <h3>Administrative Science Requirements</h3>
-          <p>MGMT 210, ECON 101, ECON 102, ECON 121, ECON 122, and Technical Communication</p>
+      <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('math-cs')">
+          <h3>Mathematics and Computer Science</h3>
+          <span class="dropdown-arrow" id="arrow-math-cs">▼</span>
         </div>
+        <div class="dropdown-content" id="math-cs">
+          <ul>
+            <li>MATH 155 – Applied Calculus</li>
+            <li>MATH 215 – Finite Mathematics for Information Sciences</li>
+            <li>STAT 351 – Applied Statistics for Business and Economics</li>
+            <li>IS 147 – Introduction to Computer Programming or
+              <div class="sub-option">CMSC 201 – Computer Science I for Majors</div>
+            </li>
+            <li>IS 247 – Computer Programming II or
+              <div class="sub-option">CMSC 202 – Computer Science II for Major</div>
+            </li>
+            <li>One additional approved programming course selected from the following:
+              <div class="sub-option">IS 246</div>
+              <div class="sub-option">IS 413</div>
+              <div class="sub-option">IS 448</div>
+              <div class="sub-option">IS 471</div>
+              <div class="sub-option">IS 472</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="dropdown-section">
+        <div class="dropdown-header" onclick="toggleDropdown('admin-sci')">
+          <h3>Administrative Science</h3>
+          <span class="dropdown-arrow" id="arrow-admin-sci">▼</span>
+        </div>
+        <div class="dropdown-content" id="admin-sci">
+          <ul>
+            <li>MGMT 210 – The Practice of Management</li>
+            <li>ECON 101 – Principles of Microeconomics (SS)</li>
+            <li>ECON 102 – Principles of Macroeconomics (SS)</li>
+            <li>ECON 121 – Principles of Accounting I</li>
+            <li>ECON 122 – Principles of Accounting II</li>
+            <li>ENGL 393 – Technical Communication or
+              <div class="sub-option">IS 369 – Research Seminar: Writings In Information Systems</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="notes-section">
+        <h3>Important Notes & Requirements</h3>
         
-        <div class="large-box">
-          <h3>Gateway Requirements</h3>
-          <p>Before taking IS 410 and 450: Grade of "C" or higher in MATH 155 & IS 147, and "B" or higher in IS 300 & IS 310</p>
-        </div>
+        <p><strong>Minimum Grade Requirements:</strong><br>
+        Students must earn a grade of "C" or better for any course to be applied to the Information Systems major.</p>
+        
+        <p><strong>Gateway Requirements:</strong><br>
+        Before being allowed to take IS 410 and 450 (and then the rest of the IS 400-level core courses), students must first complete the following:</p>
+        <ul>
+          <li>A grade of "C" or higher in:
+            <ul>
+              <li>MATH 155 – Elementary Calculus</li>
+              <li>IS 147 – Introduction to Computer Programming</li>
+            </ul>
+          </li>
+          <li>A grade of "B" or higher in:
+            <ul>
+              <li>IS 300 – Management Information Systems</li>
+              <li>IS 310 – Software and Hardware Concepts</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <p><strong>Residency Requirement:</strong><br>
+        IS 300 and IS 310 must be completed in residence. Information Systems does not support third time repeat petitions for the purposes of continuing in this major.</p>
+        
+        <p><strong>Upper-Level Electives:</strong><br>
+        Examples of upper-level electives include: IS 303, IS 304, IS 460, IS 461, IS 427, IS 428, IS 430, IS 438, IS 464, IS 471, IS 472, IS 451U, IS 451M, and IS 452. See the catalog for a full listing.</p>
+        
+        <p><strong>Special Courses:</strong><br>
+        Courses including IS 399, IS 478, IS 479, IS 469, IS 397, and IS 467 cannot be used to satisfy the IS upper-level elective requirement, but students can use them to gain academic credit for internships, co-ops, and research projects. See your advisor for more information.</p>
       </div>
     </div>
   </div>
@@ -513,6 +673,14 @@
         link.classList.remove('active');
       });
       event.target.classList.add('active');
+    }
+
+    function toggleDropdown(id) {
+      const content = document.getElementById(id);
+      const arrow = document.getElementById('arrow-' + id);
+      
+      content.classList.toggle('open');
+      arrow.classList.toggle('open');
     }
   </script>
 </body>
