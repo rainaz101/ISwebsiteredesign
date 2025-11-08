@@ -230,92 +230,6 @@
       outline: none;
       border-color: #ffd700;
     }
-    
-    .message-box {
-      background: #f0f0f0;
-      padding: 60px;
-      border-radius: 8px;
-      text-align: center;
-      min-height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .message-box h3 {
-      font-size: 2em;
-      color: #333;
-    }
-
-    .message-form-group {
-      display: flex;
-      flex-direction: column;
-      margin-top: 20px;
-    }
-
-    .message-form-group label {
-      font-size: 0.9em;
-      color: #333;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-align: left;
-    }
-
-    .message-form-group textarea {
-      padding: 15px;
-      border: 2px solid #e0e0e0;
-      border-radius: 4px;
-      font-size: 1em;
-      font-family: inherit;
-      min-height: 200px;
-      resize: vertical;
-      transition: border-color 0.3s;
-    }
-
-    .message-form-group textarea:focus {
-      outline: none;
-      border-color: #ffd700;
-    }
-
-    .submit-button {
-      background: #ffd700;
-      color: #333;
-      border: none;
-      padding: 15px 40px;
-      font-size: 1em;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 20px;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .submit-button:hover {
-      background: #f0c900;
-      transform: translateY(-2px);
-    }
-
-    .submit-button:active {
-      transform: translateY(0);
-    }
-
-    .contact-info {
-      background: #fff9e6;
-      border: 2px solid #ffd700;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 30px;
-      text-align: center;
-    }
-
-    .contact-info p {
-      color: #555;
-      line-height: 1.8;
-      margin: 5px 0;
-    }
 
     .info-box {
       background: #f9f9f9;
@@ -443,6 +357,76 @@
 
     .notes-section strong {
       color: #333;
+    }
+
+    .message-form-group {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .message-form-group label {
+      font-size: 0.9em;
+      color: #333;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+
+    .message-form-group textarea {
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 1em;
+      font-family: inherit;
+      min-height: 250px;
+      resize: vertical;
+      transition: border-color 0.3s;
+    }
+
+    .message-form-group textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+
+    .submit-button {
+      background: #ffd700;
+      color: #333;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-button:hover {
+      background: #f0c900;
+      transform: translateY(-2px);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+    }
+
+    .contact-info {
+      background: #fff9e6;
+      border: 2px solid #ffd700;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-info p {
+      color: #555;
+      line-height: 1.8;
+      margin: 5px 0;
     }
 
     @media (max-width: 768px) {
@@ -662,14 +646,14 @@
       
       <div class="message-form-group">
         <label>MESSAGE</label>
-        <textarea id="contact-message" placeholder="Type your message here..."></textarea>
+        <textarea id="contact-message" placeholder="Write your message here..."></textarea>
       </div>
       
       <button class="submit-button" onclick="submitContactForm()">Send Message</button>
       
       <div class="contact-info">
         <p><strong>UMBC Information Systems Department</strong></p>
-        <p>For more information about our programs, please fill out the form above or visit our office.</p>
+        <p>For more information about our programs, please fill out the form above.</p>
       </div>
     </div>
   </div>
@@ -691,7 +675,7 @@
         <h2>About Our Program</h2>
         <p>Building tomorrow's information systems leaders</p>
       </div>
-      <div class="message-box">
+      <div class="large-box">
         <h3>Content Coming Soon</h3>
       </div>
     </div>
@@ -713,7 +697,7 @@
       <div class="program-header">
         <h2>Our Faculty & Staff</h2>
       </div>
-      <div class="message-box">
+      <div class="large-box">
         <h3>Content Coming Soon</h3>
       </div>
     </div>
@@ -735,7 +719,7 @@
       <div class="program-header">
         <h2>Research & Innovation</h2>
       </div>
-      <div class="message-box">
+      <div class="large-box">
         <h3>Content Coming Soon</h3>
       </div>
     </div>
