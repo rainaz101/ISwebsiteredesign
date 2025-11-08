@@ -247,6 +247,76 @@
       color: #333;
     }
 
+    .message-form-group {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .message-form-group label {
+      font-size: 0.9em;
+      color: #333;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+
+    .message-form-group textarea {
+      padding: 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 1em;
+      font-family: inherit;
+      min-height: 200px;
+      resize: vertical;
+      transition: border-color 0.3s;
+    }
+
+    .message-form-group textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+
+    .submit-button {
+      background: #ffd700;
+      color: #333;
+      border: none;
+      padding: 15px 40px;
+      font-size: 1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-button:hover {
+      background: #f0c900;
+      transform: translateY(-2px);
+    }
+
+    .submit-button:active {
+      transform: translateY(0);
+    }
+
+    .contact-info {
+      background: #fff9e6;
+      border: 2px solid #ffd700;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-info p {
+      color: #555;
+      line-height: 1.8;
+      margin: 5px 0;
+    }
+
     .info-box {
       background: #f9f9f9;
       padding: 25px;
@@ -572,25 +642,34 @@
     <div class="content">
       <div class="program-header">
         <h2>CONTACT US</h2>
+        <p>Get in touch with the Information Systems Department</p>
       </div>
       
       <div class="contact-form">
         <div class="form-group">
           <label>NAME</label>
-          <input type="text" placeholder="Your name">
+          <input type="text" id="contact-name" placeholder="Your name">
         </div>
         <div class="form-group">
           <label>EMAIL</label>
-          <input type="email" placeholder="your.email@example.com">
+          <input type="email" id="contact-email" placeholder="your.email@example.com">
         </div>
         <div class="form-group">
           <label>NUMBER</label>
-          <input type="tel" placeholder="(123) 456-7890">
+          <input type="tel" id="contact-number" placeholder="(123) 456-7890">
         </div>
       </div>
       
-      <div class="message-box">
-        <h3>Get in touch with us for more information about our programs</h3>
+      <div class="message-form-group">
+        <label>MESSAGE</label>
+        <textarea id="contact-message" placeholder="Type your message here..."></textarea>
+      </div>
+      
+      <button class="submit-button" onclick="submitContactForm()">Send Message</button>
+      
+      <div class="contact-info">
+        <p><strong>UMBC Information Systems Department</strong></p>
+        <p>For more information about our programs, please fill out the form above or visit our office.</p>
       </div>
     </div>
   </div>
@@ -681,6 +760,27 @@
       
       content.classList.toggle('open');
       arrow.classList.toggle('open');
+    }
+
+    function submitContactForm() {
+      const name = document.getElementById('contact-name').value;
+      const email = document.getElementById('contact-email').value;
+      const number = document.getElementById('contact-number').value;
+      const message = document.getElementById('contact-message').value;
+      
+      if (!name || !email || !message) {
+        alert('Please fill in your name, email, and message before submitting.');
+        return;
+      }
+      
+      // In a real implementation, this would send data to a server
+      alert('Thank you for your message! The IS Department will get back to you soon.\n\nYour information:\nName: ' + name + '\nEmail: ' + email);
+      
+      // Clear the form
+      document.getElementById('contact-name').value = '';
+      document.getElementById('contact-email').value = '';
+      document.getElementById('contact-number').value = '';
+      document.getElementById('contact-message').value = '';
     }
   </script>
 </body>
